@@ -1,8 +1,8 @@
 import { Button, Navbar } from "flowbite-react";
 import { useState } from "react";
-import SignInModal from "../SiginInModal/index";
-import SignUpModal from "../SignUpModal";
-import Auth from "../../utlis/auth";
+// import SignInModal from "../SiginInModal/index";
+// import SignUpModal from "../SignUpModal";
+import Auth from "../../utils/auth";
 
 const Navigation = () => {
   const [currentModal, setCurrentModal] = useState(null);

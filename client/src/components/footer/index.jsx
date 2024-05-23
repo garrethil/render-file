@@ -1,3 +1,5 @@
+import { Footer } from "flowbite-react";
+
 import {
   BsDribbble,
   BsFacebook,
@@ -8,7 +10,7 @@ import {
 
 export default function FooterComponent() {
   return (
-    <Footer container>
+    <Footer>
       <div className="w-full">
         <Footer.Divider />
         <div className="w-full place-content-center">

@@ -10,9 +10,6 @@ const resolvers = {
 
       throw AuthenticationError;
     },
-    user: async (_, { userId }) => {
-      return User.findOne({ _id: userId });
-    },
   },
   Mutation: {
     addUser: async (_, { username, email, password, onMailList }) => {
@@ -39,3 +36,5 @@ const resolvers = {
     },
   },
 };
+
+module.exports = resolvers;
