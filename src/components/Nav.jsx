@@ -5,7 +5,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className="bg-gray-800 text-white">
+    <div className="bg-headerBG text-white">
       <div className="flex justify-between items-center p-4">
         <div className="text-lg font-semibold">Render File</div>
         <button
@@ -22,16 +22,21 @@ const Navbar = () => {
             stroke="currentColor"
           >
             {isMenuOpen ? (
-              <path d="M6 18L18 6M6 6l12 12"></path>
+              <path d="M6 18L18 6M6 6l12 12"></path> // X icon for close
             ) : (
-              <path d="M4 6h16M4 12h16M4 18h16"></path>
+              <path d="M4 6h16M4 12h16M4 18h16"></path> // Hamburger icon
             )}
           </svg>
         </button>
       </div>
 
-      <div className={`md:flex ${isMenuOpen ? "block" : "hidden"}`}>
-        <nav className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 p-4 md:p-0">
+      {/* Navigation Menu */}
+      <div
+        className={`absolute w-full md:relative md:flex bg-gray-800 z-20 ${
+          isMenuOpen ? "flex" : "hidden"
+        }`}
+      >
+        <nav className="flex flex-col items-center justify-center w-full md:flex-row md:space-x-4">
           <Link to="/" className="hover:bg-gray-700 rounded p-2">
             Home
           </Link>
@@ -39,10 +44,10 @@ const Navbar = () => {
             About
           </Link>
           <Link to="/services" className="hover:bg-gray-700 rounded p-2">
-            Vault
+            Services
           </Link>
           <Link to="/contact" className="hover:bg-gray-700 rounded p-2">
-            Events
+            Contact
           </Link>
         </nav>
       </div>
