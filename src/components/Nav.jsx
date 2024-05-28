@@ -1,57 +1,70 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="bg-headerBG text-white">
-      <div className="flex justify-between items-center p-4">
-        <div className="text-lg font-semibold">Render File</div>
+    <nav className="bg-white shadow-md mb-2">
+      <div className="container mx-auto px-4 py-2 flex justify-between items-center">
+        <a className="text-lg font-normal" href="/">
+          Render File
+        </a>
         <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="text-white md:hidden"
+          className="text-gray-800 md:hidden"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-controls="navbarNav"
+          aria-expanded={isOpen}
+          aria-label="Toggle navigation"
         >
           <svg
-            className="w-6 h-6"
-            fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            fill="currentColor"
+            className="bi bi-list"
+            viewBox="0 0 16 16"
           >
-            {isMenuOpen ? (
-              <path d="M6 18L18 6M6 6l12 12"></path> // X icon for close
-            ) : (
-              <path d="M4 6h16M4 12h16M4 18h16"></path> // Hamburger icon
-            )}
+            <path
+              fillRule="evenodd"
+              d="M1 2.75A.75.75 0 0 1 1.75 2h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 2.75zm0 5A.75.75 0 0 1 1.75 7h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 7.75zm0 5a.75.75 0 0 1 .75-.75h12.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1-.75-.75z"
+            />
           </svg>
         </button>
+        <div
+          className={`md:flex justify-center items-center w-full md:w-auto ${
+            isOpen ? "block" : "hidden"
+          }`}
+          id="navbarNav"
+        >
+          <ul className="md:flex md:space-x-4">
+            <li className="nav-item">
+              <a
+                className="block py-2 px-4 text-gray-800 hover:text-gray-600"
+                href="/"
+              >
+                Home
+              </a>
+            </li>
+            <li className="nav-item">
+              <a
+                className="block py-2 px-4 text-gray-800 hover:text-gray-600"
+                href="#"
+              >
+                About
+              </a>
+            </li>
+            <li className="nav-item">
+              <a
+                className="block py-2 px-4 text-gray-800 hover:text-gray-600"
+                href="/content"
+              >
+                Content
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
-
-      {/* Navigation Menu */}
-      <div
-        className={`absolute w-full md:relative md:flex bg-gray-800 z-20 ${
-          isMenuOpen ? "flex" : "hidden"
-        }`}
-      >
-        <nav className="flex flex-col items-center justify-center w-full md:flex-row md:space-x-4">
-          <Link to="/" className="hover:bg-gray-700 rounded p-2">
-            Home
-          </Link>
-          <Link to="/about" className="hover:bg-gray-700 rounded p-2">
-            About
-          </Link>
-          <Link to="/services" className="hover:bg-gray-700 rounded p-2">
-            Services
-          </Link>
-          <Link to="/contact" className="hover:bg-gray-700 rounded p-2">
-            Contact
-          </Link>
-        </nav>
-      </div>
-    </div>
+    </nav>
   );
 };
 

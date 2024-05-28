@@ -6,7 +6,9 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
+
 import Navbar from "./components/Nav";
+import Footer from "./components/Footer";
 
 import "./App.css";
 
@@ -40,10 +42,11 @@ function App() {
       <ApolloProvider client={client}>
         <div className="flex-column justify-flex-start min-100-vh">
           <Navbar />
-          <div className="container">
+          <div>
             {/* The Outlet component will be replaced by the proper page based on the URL */}
             <Outlet />
           </div>
+          <Footer />
         </div>
       </ApolloProvider>
     </>
