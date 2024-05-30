@@ -31,7 +31,7 @@ const Navbar = () => {
           </svg>
         </button>
         <div
-          className={`md:flex justify-center items-center w-full md:w-auto ${
+          className={`md:flex items-center w-full md:w-auto ${
             isOpen ? "block" : "hidden"
           }`}
           id="navbarNav"
