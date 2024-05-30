@@ -1,10 +1,10 @@
 import { useState } from "react";
-
+import { Link } from "react-router-dom";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-white shadow-md mb-2">
+    <nav className="bg-headerBG shadow-md mb-2">
       <div className="container mx-auto px-4 py-2 flex justify-between items-center">
         <a className="text-lg font-normal" href="/">
           Render File
@@ -38,28 +38,28 @@ const Navbar = () => {
         >
           <ul className="md:flex md:space-x-4">
             <li className="nav-item">
-              <a
-                className="block py-2 px-4 text-gray-800 hover:text-gray-600"
-                href="/"
+              <Link
+                className="block py-2 px-4 text-gray-800 hover:text-green-600"
+                to="/"
               >
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a
+              <Link
                 className="block py-2 px-4 text-gray-800 hover:text-gray-600"
-                href="#"
+                to="/about"
               >
                 About
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a
+              <Link
                 className="block py-2 px-4 text-gray-800 hover:text-gray-600"
-                href="/content"
+                to="/vault"
               >
-                Content
-              </a>
+                Vault
+              </Link>
             </li>
           </ul>
         </div>

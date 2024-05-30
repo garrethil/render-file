@@ -1,9 +1,9 @@
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white text-center p-4 mt-auto">
+    <footer className="bg-headerBG text-center p-4 mt-auto">
       <div className="container mx-auto">
         <p className="text-sm">
-          © {new Date().getFullYear()} My Company. All rights reserved.
+          © {new Date().getFullYear()} Render File. All rights reserved.
         </p>
         <div className="flex justify-center space-x-4 mt-2">
           <a href="/about" className="hover:underline">

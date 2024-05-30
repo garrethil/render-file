@@ -42,10 +42,10 @@ function App() {
       <ApolloProvider client={client}>
         <div className="flex-column justify-flex-start min-100-vh">
           <Navbar />
-          <div>
-            {/* The Outlet component will be replaced by the proper page based on the URL */}
+          <div className="bodySection">
             <Outlet />
           </div>
+
           <Footer />
         </div>
       </ApolloProvider>
