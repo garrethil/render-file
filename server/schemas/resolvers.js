@@ -1,0 +1,1 @@
+const Content = require("../models");
