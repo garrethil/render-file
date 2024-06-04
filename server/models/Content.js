@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const contentSchema = new Schema({
-  url: {
+  videoId: {
     type: String,
     required: true,
   },
@@ -12,9 +12,6 @@ const contentSchema = new Schema({
     required: true,
   },
   desc: {
-    type: String,
-  },
-  date: {
     type: String,
   },
 });

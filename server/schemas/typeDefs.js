@@ -1,10 +1,13 @@
 const typeDefs = `
 type Content {
     _id: ID
-    url: String
+    videoId: String
     title: String
     desc: String
-    date: String
+}
+
+type Query {
+    content: [Content]
 }
 `;
 

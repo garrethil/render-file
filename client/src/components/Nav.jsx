@@ -4,7 +4,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-headerBG shadow-md mb-2">
+    <nav className="bg-headerBG shadow-md">
       <div className="container mx-auto px-4 py-2 flex justify-between items-center">
         <a className="text-lg font-normal" href="/">
           Render File

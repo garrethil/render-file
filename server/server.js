@@ -25,12 +25,7 @@ const startApolloServer = async () => {
   app.use(express.json());
 
   // Applying Apollo Server middleware to the '/graphql' endpoint
-  app.use(
-    "/graphql",
-    expressMiddleware(server, {
-      context: authMiddleware, // Passing custom authentication middleware to the Apollo context
-    })
-  );
+  app.use("/graphql", expressMiddleware(server, {}));
 
   // Serving static files and handling client-side routing in production environment
   if (process.env.NODE_ENV === "production") {

@@ -42,7 +42,7 @@ function App() {
       <ApolloProvider client={client}>
         <div className="flex flex-col justify-flex-start min-h-screen">
           <Navbar />
-          <div className="bodySection">
+          <div className="flex-grow bodySection">
             <Outlet />
           </div>
           <Footer />
