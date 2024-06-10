@@ -1,48 +1,33 @@
+require("dotenv").config();
 const express = require("express");
 const path = require("path");
-const db = require("./config/connection"); // Importing database connection setup
-require("dotenv").config();
+const db = require("./config/connection");
+const cors = require("cors");
+const { getContent } = require("./controllers/api/contentController");
 
-const { expressMiddleware } = require("@apollo/server/express4"); // Importing Apollo Server Express middleware
-const { ApolloServer } = require("@apollo/server"); // Importing Apollo Server
-const { typeDefs, resolvers } = require("./schemas"); // Importing GraphQL schema and resolvers
+const app = express();
+const PORT = process.env.PORT || 3001;
 
-const app = express(); // Creating an Express application
-const PORT = process.env.PORT || 3001; // Setting port number
-
-const server = new ApolloServer({
-  // Creating Apollo Server instance
-  typeDefs, // Passing GraphQL type definitions
-  resolvers, // Passing GraphQL resolvers
-});
-
-const startApolloServer = async () => {
-  // Function to start Apollo Server
-  await server.start(); // Starting Apollo Server
-
-  // Middleware for parsing request bodies
-  app.use(express.urlencoded({ extended: false }));
-  app.use(express.json());
-
-  // Applying Apollo Server middleware to the '/graphql' endpoint
-  app.use("/graphql", expressMiddleware(server, {}));
-
-  // Serving static files and handling client-side routing in production environment
-  if (process.env.NODE_ENV === "production") {
-    app.use(express.static(path.join(__dirname, "../client/dist")));
-    app.get("*", (req, res) => {
-      res.sendFile(path.join(__dirname, "../client/dist/index.html"));
-    });
-  }
-
-  // Listening for database connection 'open' event and starting Express server
-  db.once("open", () => {
-    app.listen(PORT, () => {
-      console.log(`API server running on port ${PORT}!`);
-      console.log(`Use GraphQL at http://localhost:${PORT}/graphql`);
-    });
-  });
+const corsOptions = {
+  origin: "http://localhost:5173",
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
+app.use(cors(corsOptions));
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
-// Call the async function to start the server
-startApolloServer();
+// Define REST API endpoints
+app.get("/api/content", getContent);
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../client/build")));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../client/build/index.html"));
+  });
+}
+
+db.once("open", () => {
+  app.listen(PORT, () => {
+    console.log(`API server running on port ${PORT}!`);
+  });
+});

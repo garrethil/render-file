@@ -14,6 +14,9 @@ const contentSchema = new Schema({
   desc: {
     type: String,
   },
+  date: {
+    type: String,
+  },
 });
 
 const Content = mongoose.model("Content", contentSchema);
