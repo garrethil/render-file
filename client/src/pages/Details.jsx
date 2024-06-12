@@ -10,9 +10,8 @@ const DetailsPage = () => {
 
   return (
     <div>
-      <h1>Details Page</h1>
       <h2>{selectedVideo.title}</h2>
-      <p>{selectedVideo.desc}</p>
+      <pre style={{ whiteSpace: "pre-wrap" }}>{selectedVideo.desc}</pre>
     </div>
   );
 };

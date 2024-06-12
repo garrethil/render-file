@@ -7,7 +7,7 @@ export default function Vault() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
-  const { setSelectedCard } = useContext(CardContext);
+  const { setSelectedVideo } = useContext(CardContext);
   const navigate = useNavigate();
 
   const axios_endpoint = axios.create({
@@ -39,10 +39,9 @@ export default function Vault() {
   }
 
   const handleCardClick = (video) => {
-    setSelectedCard(video);
+    setSelectedVideo(video);
     navigate(`/vault/${video.videoId}`);
   };
-
   return (
     <div className="max-w-full flex flex-col items-center">
       <h2>Past Renderings</h2>
@@ -55,7 +54,6 @@ export default function Vault() {
           >
             <h3 className="font-bold">{video.title}</h3>
             <h4>{video.date}</h4>
-            <pre style={{ whiteSpace: "pre-wrap" }}>{video.desc}</pre>
           </div>
         ))}
       </div>
