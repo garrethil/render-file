@@ -7,7 +7,8 @@ import Home from "./pages/Home.jsx";
 import About from "./pages/About.jsx";
 import Vault from "./pages/Vault.jsx";
 import Error from "./pages/Error.jsx";
-
+import DetailsPage from "./pages/Details.jsx";
+import { CardProvider } from "./utils/CardContext";
 const router = createBrowserRouter([
   {
     path: "/", // Root path
@@ -27,10 +28,18 @@ const router = createBrowserRouter([
         path: "/vault",
         element: <Vault />,
       },
+      {
+        path: "/vault/:id",
+        element: <DetailsPage />, // Add the Details route
+      },
     ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <RouterProvider router={router} /> // Providing the router to the RouterProvider
+  <CardProvider>
+    {" "}
+    {/* Wrap with CardProvider */}
+    <RouterProvider router={router} />
+  </CardProvider>
 );
