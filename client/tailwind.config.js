@@ -3,7 +3,7 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     colors: {
-      headerBG: "#555555",
+      headerBG: "#858689",
     },
     extend: {},
   },

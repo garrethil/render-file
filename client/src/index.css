@@ -6,8 +6,9 @@
   font-family: "Press Start 2P", system-ui;
   font-weight: 400;
   font-style: normal;
+  color: black;
 }
 
 .bodySection {
-  background-image: linear-gradient(to bottom, #8bc1e5, #cd9fe1);
+  background-image: linear-gradient(to bottom, #d080da, #9cccec);
 }

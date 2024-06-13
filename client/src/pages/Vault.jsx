@@ -28,7 +28,8 @@ export default function Vault() {
       });
   }, []);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading)
+    return <p className="text-center align-items-centre">Loading...</p>;
   if (error) {
     console.error("Error fetching data:", error);
     return <p>Error: {error.message}</p>;
@@ -43,17 +44,24 @@ export default function Vault() {
     navigate(`/vault/${video.videoId}`);
   };
   return (
-    <div className="max-w-full flex flex-col items-center">
-      <h2>Past Renderings</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div className="w-full flex flex-col items-center p-4">
+      <img
+        src="/renderFile2.png"
+        alt="Render File Event"
+        className="mx-5 mb-4 border-4 border-gray-300 rounded"
+      />
+      <h2 className="text-xl font-bold mb-4">Past Renderings</h2>
+      <div className="flex flex-col gap-4 w-full">
         {data.map((video) => (
           <div
             key={video.videoId}
             onClick={() => handleCardClick(video)}
-            className="p-4 border rounded shadow"
+            className="w-full p-2 cursor-pointer hover:underline flex items-center justify-between lg:justify-around"
           >
-            <h3 className="font-bold">{video.title}</h3>
-            <h4>{video.date}</h4>
+            <h3 className="text-sm">{video.title}</h3>
+            <h4 className="text-sm hover:text-red-500 hidden md:block">
+              {video.date}
+            </h4>
           </div>
         ))}
       </div>
