@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div className="w-full flex flex-col items-center p-4">
       <Schedule />
-      <h3>It will look like this</h3>
+      <h3 className="my-5 p-3">It will look like this</h3>
       <img
         src="/renderFile3.png"
         alt="Render File Event"
