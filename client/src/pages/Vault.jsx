@@ -48,10 +48,10 @@ export default function Vault() {
       <img
         src="/renderFile2.png"
         alt="Render File Event"
-        className="mx-5 mb-4 border-4 border-gray-300 rounded"
+        className="mx-5 mb-4 border-4 border-gray-300 rounded md:w-1/2"
       />
       <h2 className="text-xl font-bold mb-4">Past Renderings</h2>
-      <div className="flex flex-col gap-4 w-full">
+      <div className="flex flex-col gap-4 w-full vault-item">
         {data.map((video) => (
           <div
             key={video.videoId}

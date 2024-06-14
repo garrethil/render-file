@@ -1,14 +1,22 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <nav className="bg-headerBG shadow-md">
-      <div className="container mx-auto px-4 py-2 flex justify-between items-center">
-        <a className="text-lg font-normal" href="/">
-          Render File
-        </a>
+      <div className="container mx-auto px-4 py-2 flex justify-between items-center relative">
+        <div className="container flex">
+          <a className="text-lg font-normal flex" href="/">
+            <img
+              src="/file-green.svg"
+              alt="Render File Logo"
+              className="w-8 h-8 mr-3"
+            />
+            Render File
+          </a>
+        </div>
         <button
           className="text-gray-800 md:hidden"
           onClick={() => setIsOpen(!isOpen)}
@@ -31,7 +39,7 @@ const Navbar = () => {
           </svg>
         </button>
         <div
-          className={`md:flex items-center w-full md:w-auto ${
+          className={`absolute top-full left-0 right-0 bg-headerBG md:static md:flex items-center md:w-auto transition-all duration-300 ${
             isOpen ? "block" : "hidden"
           }`}
           id="navbarNav"
@@ -39,6 +47,7 @@ const Navbar = () => {
           <ul className="md:flex md:space-x-4">
             <li className="nav-item">
               <Link
+                onClick={() => setIsOpen(!isOpen)}
                 className="block py-2 px-4 text-gray-800 hover:text-green-600"
                 to="/"
               >
@@ -47,6 +56,7 @@ const Navbar = () => {
             </li>
             <li className="nav-item">
               <Link
+                onClick={() => setIsOpen(!isOpen)}
                 className="block py-2 px-4 text-gray-800 hover:text-gray-600"
                 to="/about"
               >
@@ -55,6 +65,7 @@ const Navbar = () => {
             </li>
             <li className="nav-item">
               <Link
+                onClick={() => setIsOpen(!isOpen)}
                 className="block py-2 px-4 text-gray-800 hover:text-gray-600"
                 to="/vault"
               >

@@ -9,6 +9,10 @@
   color: black;
 }
 
+.vault-item {
+  color: red;
+}
+
 .bodySection {
-  background-image: linear-gradient(to bottom, #d080da, #9cccec);
+  background-image: linear-gradient(to bottom, #c990ddaf, #83b6d8);
 }
