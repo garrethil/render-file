@@ -9,30 +9,34 @@ const DetailsPage = () => {
     return <div>No card selected.</div>;
   }
   const opts = {
+    height: "390",
+    width: "640",
     playerVars: {
-      controls: 0,
-      modestbranding: 1,
-      fs: 1,
+      autoplay: 1,
     },
   };
 
   return (
-    <div className="flex flex-col items-center p-4">
-      <h2 className="text-xl m-5 underline">{selectedVideo.title}</h2>
-      <div className="rounded overflow-hidden">
+    <div className="flex flex-col items-center p-4 sm:p-6 lg:p-8">
+      <h2 className="text-lg sm:text-xl lg:text-2xl m-3 sm:m-5 underline">
+        {selectedVideo.title}
+      </h2>
+      <div className="w-full max-w-screen-sm rounded overflow-hidden">
         <YouTube
           videoId={selectedVideo.videoId}
-          opts={opts}
-          className="mb-4 "
+          opts={{ ...opts, width: "100%" }}
+          className="mb-4 w-full"
         />
       </div>
       <pre
+        className="m-2 p-2 sm:p-4 border-t border-gray-300 text-sm sm:text-base lg:text-lg"
         style={{ whiteSpace: "pre-wrap" }}
-        className="m-2 p-2 border-t border-gray-300"
       >
         {selectedVideo.desc}
       </pre>
-      <h5 className="my-3 text-xs">{selectedVideo.date}</h5>
+      <h5 className="my-3 text-xs sm:text-sm lg:text-base">
+        {selectedVideo.date}
+      </h5>
     </div>
   );
 };
