@@ -10,9 +10,10 @@ const Footer = () => {
           <a
             href="https://www.youtube.com/@render_file"
             target="_blank"
-            rel="noopener noreferrer"
             className="hover:underline"
-          ></a>
+          >
+            Youtube
+          </a>
         </div>
       </div>
     </footer>
