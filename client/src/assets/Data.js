@@ -3,7 +3,7 @@ const events = [
     id: 1,
     date: "June 19th @8pm",
     location: "The Bridge (379 Adelaide St.)",
-    game: "Game1",
+    game: "TBD",
   },
   {
     id: 2,
