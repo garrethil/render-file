@@ -8,11 +8,26 @@ const { getContent } = require("./controllers/api/contentController");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const corsOptions = {
-  origin: "https://renderfile-6f797c2d85db.herokuapp.com",
-  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-};
-app.use(cors(corsOptions));
+const allowedOrigins = [
+  "https://renderfile-6f797c2d85db.herokuapp.com",
+  "http://www.renderfile.com",
+  "https://www.renderfile.com",
+];
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      // Allow requests with no origin, like mobile apps or curl requests
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.indexOf(origin) === -1) {
+        const msg =
+          "The CORS policy for this site does not allow access from the specified Origin.";
+        return callback(new Error(msg), false);
+      }
+      return callback(null, true);
+    },
+  })
+);
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
