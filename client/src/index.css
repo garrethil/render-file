@@ -16,3 +16,7 @@
 .bodySection {
   background-image: linear-gradient(to bottom, #c990ddaf, #83b6d8);
 }
+
+.credits {
+  font-size: 8;
+}

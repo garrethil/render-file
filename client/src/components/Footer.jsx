@@ -17,7 +17,9 @@ const Footer = () => {
         </div>
       </div>
       <div className="flex justify-center pt-3 mt-3">
-        <p className="text-xs text-gray-400">website by garret hildebrandt</p>
+        <p className="credits text-xs text-gray-400">
+          website by garret hildebrandt
+        </p>
       </div>
     </footer>
   );
