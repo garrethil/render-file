@@ -16,7 +16,7 @@ const Footer = () => {
           </a>
         </div>
       </div>
-      <div className="flex justify-center p-3 my-3">
+      <div className="flex justify-center pt-3 mt-3">
         <p className="text-xs text-gray-400">website by garret hildebrandt</p>
       </div>
     </footer>
