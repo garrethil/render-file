@@ -1,9 +1,9 @@
 const events = [
   {
     id: 1,
-    date: "June 19th @7-11",
+    date: "June 19th @7-11pm",
     location: "The Bridge (379 Adelaide St.)",
-    game: "TBD",
+    game: "Toronto Games Week Dev games",
   },
   {
     id: 2,
