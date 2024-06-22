@@ -1,4 +1,4 @@
-# Events Channel Website
+# RenderFile Website
 
 ![MERN Stack](https://img.shields.io/badge/MERN-Stack-blue)
 ![React](https://img.shields.io/badge/React-JS-blue)
@@ -13,7 +13,7 @@ This is the official website for RenderFile events, a weekly event in Toronto ex
 ## Features
 
 - **Home Page**: List of upcoming events with details.
-- **About Page**: List of upcoming and past events with details and links to YouTube videos.
+- **About Page**: What Render file is and some media of past events.
 - **Vault Page**: Embedded A full list of all past events with matching dates and descriptions.
 
 ## Tech Stack
