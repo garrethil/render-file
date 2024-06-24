@@ -1,15 +1,9 @@
 const events = [
   {
-    id: 1,
-    date: "June 19th @7-11pm",
-    location: "The Bridge (379 Adelaide St.)",
-    game: "Toronto Games Week Dev games",
-  },
-  {
     id: 2,
     date: "June 26th @8pm",
     location: "Wenona Beerlodge",
-    game: "TBD",
+    game: "SpongeBob: Battle for Bikini Bottom",
   },
   {
     id: 3,
@@ -22,6 +16,12 @@ const events = [
     date: "July 10th @8pm",
     location: "Wenona Beerlodge",
     game: "Tomb Raider",
+  },
+  {
+    id: 5,
+    date: "July 17th @8pm",
+    location: "Wenona Beerlodge",
+    game: "TBD",
   },
 ];
 
