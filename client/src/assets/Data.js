@@ -1,15 +1,9 @@
 const events = [
   {
-    id: 2,
-    date: "June 26th @8pm",
-    location: "Wenona Beerlodge",
-    game: "SpongeBob: Battle for Bikini Bottom",
-  },
-  {
     id: 3,
     date: "July 3rd @8pm",
     location: "Wenona Beerlodge",
-    game: "Birthday Bash",
+    game: "Birthday Bash: Mario Kart Madness",
   },
   {
     id: 4,
@@ -20,6 +14,12 @@ const events = [
   {
     id: 5,
     date: "July 17th @8pm",
+    location: "Wenona Beerlodge",
+    game: "TBD",
+  },
+  {
+    id: 2,
+    date: "July 24th @8pm",
     location: "Wenona Beerlodge",
     game: "TBD",
   },
