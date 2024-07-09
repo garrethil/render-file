@@ -8,7 +8,11 @@ const Footer = () => {
         <p className="text-sm">© {new Date().getFullYear()} Render File.</p>
         <div className="flex justify-center space-x-4 my-4">
           <a href="/about" className="hover:underline text-lg">
-            About
+            <img
+              src="/file-green.svg"
+              alt="Render File Logo"
+              className="w-8 h-8 mr-3"
+            />
           </a>
           <a
             href="https://www.youtube.com/@render_file"
@@ -16,7 +20,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="hover:underline text-lg"
           >
-            <FontAwesomeIcon icon={faYoutube} />
+            <FontAwesomeIcon icon={faYoutube} size="2x" />
           </a>
           <a
             href="https://www.instagram.com/render.file"
@@ -24,7 +28,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="hover:underline text-lg"
           >
-            <FontAwesomeIcon icon={faInstagram} />
+            <FontAwesomeIcon icon={faInstagram} size="2x" />
           </a>
         </div>
       </div>

@@ -21,7 +21,7 @@ const events = [
     id: 3,
     date: "July 31st @8pm",
     location: "Wenona Beerlodge",
-    game: "Birthday Bash: Mario Kart Madness",
+    game: "TBD",
   },
 ];
 
