@@ -9,9 +9,9 @@ const Footer = () => {
         <div className="flex justify-center space-x-4 my-4">
           <a href="/about" className="hover:underline text-lg">
             <img
-              src="/file-green.svg"
+              src="/file-black.svg"
               alt="Render File Logo"
-              className="w-8 h-8 mr-3"
+              className="w-8 h-8"
             />
           </a>
           <a
