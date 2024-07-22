@@ -13,7 +13,6 @@ const allowedOrigins = [
   "https://renderfile-6f797c2d85db.herokuapp.com",
   "http://www.renderfile.com",
   "https://www.renderfile.com",
-  "http://localhost:5173",
 ];
 
 app.use(
