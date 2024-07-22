@@ -17,6 +17,6 @@ export default function About() {
         />
       </div>
     </div>
-    //test
+    //test2
   );
 }
