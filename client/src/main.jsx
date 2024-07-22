@@ -9,6 +9,8 @@ import Vault from "./pages/Vault.jsx";
 import Error from "./pages/Error.jsx";
 import DetailsPage from "./pages/Details.jsx";
 import { CardProvider } from "./utils/CardContext";
+import { AdminProvider } from "./utils/AdminContext"; // Import AdminProvider
+
 const router = createBrowserRouter([
   {
     path: "/", // Root path
@@ -18,7 +20,7 @@ const router = createBrowserRouter([
       // Child routes
       {
         index: true, // Index route
-        element: <Home />, // Login page component
+        element: <Home />, // Home page component
       },
       {
         path: "/about",
@@ -30,7 +32,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/vault/:id",
-        element: <DetailsPage />, // Add the Details route
+        element: <DetailsPage />, // Details route
       },
     ],
   },
@@ -40,6 +42,10 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <CardProvider>
     {" "}
     {/* Wrap with CardProvider */}
-    <RouterProvider router={router} />
+    <AdminProvider>
+      {" "}
+      {/* Wrap with AdminProvider */}
+      <RouterProvider router={router} />
+    </AdminProvider>
   </CardProvider>
 );

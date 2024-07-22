@@ -1,7 +1,11 @@
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faYoutube, faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { useAdmin } from "../utils/AdminContext"; // Adjust the import path as needed
 
 const Footer = () => {
+  const { enableAdminMode } = useAdmin();
+
   return (
     <footer className="bg-headerBG text-center p-4 mt-auto">
       <div className="container mx-auto">
@@ -33,7 +37,10 @@ const Footer = () => {
         </div>
       </div>
       <div className="flex justify-center pt-3 mt-3">
-        <address className="credits text-gray-400">
+        <address
+          className="credits text-gray-400"
+          onClick={enableAdminMode} // Ensure the onClick handler is a function
+        >
           by Garret Hildebrandt
         </address>
       </div>
