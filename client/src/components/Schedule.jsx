@@ -97,15 +97,6 @@ const Schedule = () => {
       </h2>
       <div className="space-y-4">
         <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4 bg-gray-100 p-2 rounded-md">
-          <div className="w-full sm:w-1/3 text-md sm:text-lg mx-3 font-semibold text-center">
-            Date
-          </div>
-          <div className="w-full sm:w-1/3 text-md sm:text-lg mx-3 font-semibold text-center">
-            Game
-          </div>
-          <div className="w-full sm:w-1/3 text-md sm:text-lg mx-3 font-semibold text-center">
-            Location
-          </div>
           {isAdmin && (
             <div className="w-full sm:w-1/3 text-md sm:text-lg mx-3 font-semibold text-center">
               Actions
