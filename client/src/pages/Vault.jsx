@@ -2,6 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { CardContext } from "../utils/CardContext";
 import axios from "axios";
+import "../index.css"; // Import the CSS file
 
 export default function Vault() {
   const [loading, setLoading] = useState(true);
@@ -43,6 +44,7 @@ export default function Vault() {
     setSelectedVideo(video);
     navigate(`/vault/${video.videoId}`);
   };
+
   return (
     <div className="w-full flex flex-col items-center p-4">
       <h1 className="text-xl my-5 p-2">The Render File Vault</h1>
@@ -57,12 +59,10 @@ export default function Vault() {
           <div
             key={video.videoId}
             onClick={() => handleCardClick(video)}
-            className="w-full p-2 cursor-pointer hover:underline flex items-center justify-between lg:justify-around"
+            className="w-full p-2 cursor-pointer flex items-center justify-between lg:justify-around"
           >
-            <h3 className="text-sm">{video.title}</h3>
-            <h4 className="text-sm hover:text-red-500 hidden md:block">
-              {video.date}
-            </h4>
+            <h3 className="text-sm video-title">{video.title}</h3>
+            <h4 className="text-sm hidden md:block">{video.date}</h4>
           </div>
         ))}
       </div>

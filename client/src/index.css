@@ -9,8 +9,14 @@
   color: black;
 }
 
-.vault-item {
-  color: red;
+/* Vault.css */
+.video-title {
+  color: black; /* Default text color */
+  transition: color 0.3s ease;
+}
+
+.video-title:hover {
+  color: red; /* Color on hover */
 }
 
 .bodySection {
