@@ -54,12 +54,12 @@ export default function Vault() {
         className="mx-5 mb-4 border-4 border-gray-300 rounded md:w-1/2"
       />
       <h2 className="text-xl font-bold my-4 p-2">Past Renderings</h2>
-      <div className="flex flex-col gap-4 w-full vault-item pb-4 video-title">
+      <div className="flex flex-col gap-4 w-full pb-4">
         {data.map((video) => (
           <div
             key={video.videoId}
             onClick={() => handleCardClick(video)}
-            className="w-full p-2 cursor-pointer flex items-center justify-between lg:justify-around"
+            className="w-full p-2 cursor-pointer flex items-center justify-between lg:justify-around video-title"
           >
             <h3 className="text-sm">{video.title}</h3>
             <h4 className="text-sm hidden md:block">{video.date}</h4>
