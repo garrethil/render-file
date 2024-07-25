@@ -59,10 +59,14 @@ export default function Vault() {
           <div
             key={video.videoId}
             onClick={() => handleCardClick(video)}
-            className="w-full p-2 cursor-pointer flex items-center justify-between lg:justify-around"
+            className="w-full p-2 flex items-center justify-between lg:justify-around"
           >
-            <h3 className="text-sm video-title">{video.title}</h3>
-            <h4 className="text-sm hidden md:block">{video.date}</h4>
+            <h3 className="text-sm cursor-pointer video-title">
+              {video.title}
+            </h3>
+            <h4 className="text-sm cursor-pointer hidden md:block">
+              {video.date}
+            </h4>
           </div>
         ))}
       </div>
