@@ -11,7 +11,7 @@ if (import.meta.env.PROD) {
   pswd = import.meta.env.VITE_AUTHKEY;
 }
 
-// Create a provider component
+// Create a provider
 export const AdminProvider = ({ children }) => {
   const [isAdmin, setIsAdmin] = useState(false);
 
