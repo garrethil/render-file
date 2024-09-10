@@ -3,13 +3,21 @@ import { useState, createContext, useContext } from "react";
 // Create a context for the admin state
 const AdminContext = createContext();
 
+let pswd;
+
+if (import.meta.env.PROD) {
+  pswd = import.meta.env.REACT_APP_AUTHKEY;
+} else {
+  pswd = import.meta.env.VITE_AUTHKEY;
+}
+
 // Create a provider component
 export const AdminProvider = ({ children }) => {
   const [isAdmin, setIsAdmin] = useState(false);
 
   const enableAdminMode = () => {
     const password = prompt("Enter the admin password:");
-    if (password === "filerender140") {
+    if (password === pswd) {
       setIsAdmin(true);
       alert("Admin mode enabled!");
     } else {
