@@ -5,11 +5,7 @@ const AdminContext = createContext();
 
 let pswd;
 
-if (import.meta.env.PROD) {
-  pswd = import.meta.env.REACT_APP_AUTHKEY;
-} else {
-  pswd = import.meta.env.VITE_AUTHKEY;
-}
+pswd = import.meta.env.REACT_APP_AUTHKEY;
 
 // Create a provider
 export const AdminProvider = ({ children }) => {
