@@ -32,6 +32,3 @@ Visit our website at [RenderFile.com](https://www.renderfile.com/) to explore:
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
-## Contact
-
-- **YouTube Channel**: [RenderFile Youtube Channel](https://www.youtube.com/@render_file)
