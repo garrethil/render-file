@@ -1,4 +1,16 @@
-# RenderFile Website
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/Sajjadalgburi/Book-Search-Engine">
+    <img src="./client/public/file-black.svg" alt="Renderfile Logo" height="150" width="150">
+  </a>
+
+<h3 align="center">Renderfile</h3>
 
 ![MERN Stack](https://img.shields.io/badge/MERN-Stack-blue)
 ![React](https://img.shields.io/badge/React-JS-blue)
@@ -32,6 +44,3 @@ Visit our website at [RenderFile.com](https://www.renderfile.com/) to explore:
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
-## Contact
-
-- **YouTube Channel**: [RenderFile Youtube Channel](https://www.youtube.com/@render_file)
