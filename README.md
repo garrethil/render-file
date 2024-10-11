@@ -1,46 +1,111 @@
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
+<a name="readme-top"></a>
 
-<!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/Sajjadalgburi/Book-Search-Engine">
-    <img src="./client/public/file-black.svg" alt="Renderfile Logo" height="150" width="150">
+  <a href="https://github.com/garrethil/renderFile">
+    <img src="/file-grey.svg" alt="Renderfile Logo" height="150" width="150">
   </a>
 
-<h3 align="center">Renderfile</h3>
+<h3 align="center"><a href="">Renderfile</a></h3>
 
-![MERN Stack](https://img.shields.io/badge/MERN-Stack-blue)
-![React](https://img.shields.io/badge/React-JS-blue)
-![Node.js](https://img.shields.io/badge/Node.js-JS-green)
-![MongoDB](https://img.shields.io/badge/MongoDB-Database-green)
-![Express](https://img.shields.io/badge/Express-Framework-blue)
+  <p align="center">
 
-## Overview
+<br />
+<br />
+<a href="https://github.com/garrethil/renderFile"><strong>Explore the docs »</strong></a>
+<br />
+<br />
+<a href="https://www.renderfile.com/">Deployed App on Heroku</a>
+·
+<a href="https://github.com/garrethil/render-file/issues">Report Bug</a>
+·
+</p>
+</div>
 
-This is the official website for RenderFile events, a weekly event in Toronto exploring improvised music and video games. It is held every Wednesday, 8pm at Wenona Craft Beer Lodge. Our website is built using the MERN stack (MongoDB, Express.js, React, Node.js).
+<!-- TABLE OF CONTENTS -->
 
-## Features
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li><a href="#installation">Installation</a></li>
+    <li>
+      <a href="#contributing">Contributing</a>
+    </li>
+    <li>
+      <a href="#contact">Contact</a>
+    </li>
+  </ol>
+</details>
 
-- **Home Page**: List of upcoming events with details.
-- **About Page**: What Render file is and some media of past events.
-- **Vault Page**: Embedded A full list of all past events with matching dates and descriptions.
+<!-- ABOUT THE PROJECT -->
 
-## Tech Stack
+## About The Project
 
-- **Frontend**: React.js
-- **Backend**: Node.js with Express.js
-- **Database**: MongoDB, mongoose
-- **Styling**: CSS, Tailwind
+This project is a web application built with the MERN stack, designed to showcase the future events and past recordings of a musical artist. The app integrates with the YouTube Data API to fetch and display relevant content, allowing users to explore past performances and stay updated on upcoming shows.
 
-## Usage
-
-Visit our website at [RenderFile.com](https://www.renderfile.com/) to explore:
+To optimize performance, the app conditionally renders content, ensuring efficient loading by preventing unnecessary network requests. Additionally, the app includes an admin mode, enabling the artist or designated administrator to update and manage the schedule remotely with ease.
 
 
-## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+<!-- BUILT WITH -->
 
+## Built With
+
+[![My Skills](https://simpleskill.icons.workers.dev/svg?i=javascript,react,nodedotjs,express,mongodb,youtube,tailwindcss)](#)
+
+
+### Installation
+
+1. Clone the repo to your local machince
+   ```sh
+   git clone https://github.com/topcowmoo/areca-vestiaria
+   ```
+2. Install server and client dependencies
+   ```sh
+   npm install
+   ```
+3. Run the development environment
+   ```sh
+   npm run devlop
+   ```
+4. Build for production
+   ```sh
+   npm run build
+   ```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- CONTRIBUTING -->
+
+## Contributing
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks again!
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- CONTACT -->
+
+## Contact
+
+- Garret Hildebrandt - [@github](https://github.com/garrethil) - garrethildebrandt@gmail.com
+
+Project Link: [https://www.renderfile.com/](https://www.renderfile.com/a)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
