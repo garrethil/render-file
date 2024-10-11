@@ -3,7 +3,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/garrethil/renderFile">
-    <img src="/file-grey.svg" alt="Renderfile Logo" height="150" width="150">
+    <img src="./client/public/file-grey.svg" alt="Renderfile Logo" height="150" width="150">
   </a>
 
 <h3 align="center"><a href="">Renderfile</a></h3>
