@@ -64,7 +64,7 @@ To optimize performance, the app conditionally renders content, ensuring efficie
 
 1. Clone the repo to your local machince
    ```sh
-   git clone https://github.com/topcowmoo/areca-vestiaria
+   git clone [https://github.com/topcowmoo/areca-vestiaria](https://github.com/garrethil/render-file)
    ```
 2. Install server and client dependencies
    ```sh
@@ -105,7 +105,5 @@ Don't forget to give the project a star! Thanks again!
 - Garret Hildebrandt - [@github](https://github.com/garrethil) - garrethildebrandt@gmail.com
 
 Project Link: [https://www.renderfile.com/](https://www.renderfile.com/a)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
