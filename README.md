@@ -64,7 +64,7 @@ To optimize performance, the app conditionally renders content, ensuring efficie
 
 1. Clone the repo to your local machince
    ```sh
-   git clone [https://github.com/topcowmoo/areca-vestiaria](https://github.com/garrethil/render-file)
+   git clone https://github.com/garrethil/render-file
    ```
 2. Install server and client dependencies
    ```sh
