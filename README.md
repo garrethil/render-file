@@ -104,6 +104,6 @@ Don't forget to give the project a star! Thanks again!
 
 - Garret Hildebrandt - [@github](https://github.com/garrethil) - garrethildebrandt@gmail.com
 
-Project Link: [https://www.renderfile.com/](https://www.renderfile.com/a)
+Project Link: [https://www.renderfile.com](https://www.renderfile.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
