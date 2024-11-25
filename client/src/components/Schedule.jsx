@@ -17,9 +17,7 @@ const Schedule = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await axios.get(
-          "https://renderfile-6f797c2d85db.herokuapp.com/api"
-        );
+        const response = await axios.get("http://localhost:3001/api");
         if (response.data && Array.isArray(response.data.events)) {
           setEvents(response.data.events);
         } else {
@@ -37,9 +35,7 @@ const Schedule = () => {
 
   const handleDeleteEvent = async (id) => {
     try {
-      await axios.delete(
-        `https://renderfile-6f797c2d85db.herokuapp.com/api/${id}`
-      );
+      await axios.delete(`http://localhost:3001/api/${id}`);
       setEvents(events.filter((event) => event._id !== id));
     } catch (err) {
       console.error("Error deleting event:", err);
@@ -53,7 +49,7 @@ const Schedule = () => {
   const saveUpdatedEvent = async (id) => {
     try {
       const response = await axios.put(
-        `https://renderfile-6f797c2d85db.herokuapp.com/api/${id}`,
+        `http://localhost:3001/api/${id}`,
         editingEvent
       );
       setEvents(
@@ -67,10 +63,7 @@ const Schedule = () => {
 
   const handleAddEvent = async () => {
     try {
-      const response = await axios.post(
-        "https://renderfile-6f797c2d85db.herokuapp.com/api",
-        newEvent
-      );
+      const response = await axios.post("http://localhost:3001/api", newEvent);
       setEvents([...events, response.data]);
       setNewEvent({ date: "", game: "", location: "" });
     } catch (err) {

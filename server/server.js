@@ -9,24 +9,23 @@ const eventRoutes = require("./routes/api/eventRoutes");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const allowedOrigins = [
-  "https://renderfile-6f797c2d85db.herokuapp.com",
-  "http://www.renderfile.com",
-  "https://www.renderfile.com",
-  "http://localhost:5173/",
-];
+const allowedOrigins =
+  process.env.NODE_ENV === "production"
+    ? [
+        "https://renderfile-6f797c2d85db.herokuapp.com",
+        "http://www.renderfile.com",
+        "https://www.renderfile.com",
+      ]
+    : ["http://localhost:5173"]; // Development origin
 
 app.use(
   cors({
-    origin: function (origin, callback) {
-      // Allow requests with no origin, like mobile apps or curl requests
-      if (!origin) return callback(null, true);
-      if (allowedOrigins.indexOf(origin) === -1) {
-        const msg =
-          "The CORS policy for this site does not allow access from the specified Origin.";
-        return callback(new Error(msg), false);
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true); // Allow the origin
+      } else {
+        callback(new Error("Not allowed by CORS")); // Block the origin
       }
-      return callback(null, true);
     },
   })
 );

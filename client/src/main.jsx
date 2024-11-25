@@ -4,8 +4,8 @@ import App from "./App.jsx";
 import "./index.css";
 
 import Home from "./pages/Home.jsx";
-import About from "./pages/About.jsx";
-import Vault from "./pages/Vault.jsx";
+import About from "./components/About.jsx";
+import Vault from "./components/Vault.jsx";
 import Error from "./pages/Error.jsx";
 import DetailsPage from "./pages/Details.jsx";
 import { CardProvider } from "./utils/CardContext";
