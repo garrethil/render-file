@@ -7,7 +7,7 @@ import Vault from "../components/Vault.jsx";
 export default function Home() {
   return (
     <div>
-      <div className="w-full flex flex-col items-center p-4 md:p-6 lg:p-8">
+      <div className="w-full flex flex-col items-center p-4 mb:p-6 lg:p-8">
         <Schedule />
       </div>
       <About />

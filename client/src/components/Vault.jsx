@@ -46,7 +46,7 @@ export default function Vault() {
   };
 
   return (
-    <div className="w-full flex flex-col items-center p-4">
+    <div className="w-full flex flex-col items-center p-4" id="vault">
       <h1 className="text-xl my-5 p-2">The Render File Vault</h1>
       <img
         src="/renderFile2.png"
