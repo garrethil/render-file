@@ -89,7 +89,7 @@ const Schedule = () => {
         Upcoming Events
       </h2>
       <div className="space-y-4">
-        <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4 bg-gray-100 p-2 rounded-md">
+        <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4 p-2 rounded-md">
           {isAdmin && (
             <div className="w-full sm:w-1/3 text-md sm:text-lg mx-3 font-semibold text-center">
               Actions
@@ -99,7 +99,7 @@ const Schedule = () => {
         {events.map((event) => (
           <div
             key={event._id}
-            className="bg-white p-4 shadow-md rounded-md flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4"
+            className="p-4 shadow-md rounded-md flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4"
           >
             {editingEvent && editingEvent._id === event._id ? (
               <>
@@ -128,7 +128,7 @@ const Schedule = () => {
                       location: e.target.value,
                     })
                   }
-                  className="w-full sm:w-1/3 text-xs sm:text-sm text-gray-600 text-center sm:text-left border"
+                  className="w-full sm:w-1/3 text-xs sm:text-sm text-center sm:text-left border"
                 />
                 <button
                   onClick={() => saveUpdatedEvent(event._id)}
@@ -138,7 +138,7 @@ const Schedule = () => {
                 </button>
                 <button
                   onClick={() => setEditingEvent(null)}
-                  className="bg-gray-500 text-white px-4 py-2 rounded-md"
+                  className="px-4 py-2 rounded-md"
                 >
                   Cancel
                 </button>
@@ -151,7 +151,7 @@ const Schedule = () => {
                 <div className="w-full sm:w-1/3 text-sm sm:text-md font-medium text-center sm:text-left">
                   {event.game}
                 </div>
-                <div className="w-full sm:w-1/3 text-xs sm:text-sm text-gray-600 text-center sm:text-left">
+                <div className="w-full sm:w-1/3 text-xs sm:text-sm text-center sm:text-left">
                   {event.location}
                 </div>
                 {isAdmin && (

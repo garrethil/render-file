@@ -5,16 +5,11 @@ export default function About() {
         <h1 className="text-xl font-bold mb-4 underline">
           What is Render File?
         </h1>
-        <p className="text-sm text-gray-700 m-4">
+        <p className="text-sm m-4">
           Render File is a bi-weekly event in Toronto exploring improvised music
           and video games. It is held every 2nd and 4th Wednesday, 8pm at Wenona
           Craft Beer Lodge.
         </p>
-        <img
-          src="/renderFile1.png"
-          alt="Render File Event"
-          className="mx-auto mb-4 border-4 border-gray-300 rounded"
-        />
       </div>
     </div>
   );

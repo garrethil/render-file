@@ -28,10 +28,10 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-headerBG shadow-md">
+    <nav className="bg-headerBG shadow-md font-sans">
       <div className="container mx-auto px-4 py-2 flex justify-between items-center relative">
         <div className="container flex">
-          <a className="text-lg font-normal flex" href="/">
+          <a className="text-lg flex" href="/">
             <img
               src="/file-green.svg"
               alt="Render File Logo"
@@ -41,7 +41,7 @@ const Navbar = () => {
           </a>
         </div>
         <button
-          className="text-gray-800 md:hidden"
+          className="md:hidden"
           onClick={() => setIsOpen(!isOpen)}
           aria-controls="navbarNav"
           aria-expanded={isOpen}
@@ -71,7 +71,7 @@ const Navbar = () => {
             <li className="nav-item" onClick={() => setIsOpen(!isOpen)}>
               <Link
                 onClick={(e) => handleScrollToSection(e, "about")}
-                className="block py-2 px-4 text-gray-800 hover:underline"
+                className="block py-2 px-4 hover:underline"
               >
                 About
               </Link>
@@ -79,7 +79,7 @@ const Navbar = () => {
             <li className="nav-item" onClick={() => setIsOpen(!isOpen)}>
               <Link
                 onClick={(e) => handleScrollToSection(e, "vault")}
-                className="block py-2 px-4 text-gray-800 hover:underline"
+                className="block py-2 px-4 hover:underline"
                 to="#vault"
               >
                 Vault

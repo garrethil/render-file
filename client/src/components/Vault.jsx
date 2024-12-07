@@ -62,17 +62,12 @@ export default function Vault() {
   return (
     <div className="w-full flex flex-col items-center p-4" id="vault">
       <h1 className="text-xl my-5 p-2">The Render File Vault</h1>
-      <img
-        src="/renderFile2.png"
-        alt="Render File Event"
-        className="mx-5 mb-4 border-4 border-gray-300 rounded md:w-1/2"
-      />
       <h2 className="text-xl font-bold my-4 p-2 flex items-center">
         Past Renderings
       </h2>
       <button
         onClick={toggleList}
-        className="ml-2 text-gray-700 hover:underline border border-gray-500 rounded px-2 py-1"
+        className="ml-2 hover:underline border border-gray-500 rounded px-2 py-1"
         aria-label={isExpanded ? "Collapse list" : "Expand list"}
       >
         {isExpanded ? (
@@ -86,14 +81,14 @@ export default function Vault() {
         className="overflow-hidden transition-all duration-500 ease-in-out"
         style={{ maxHeight }}
       >
-        <div className="flex flex-col gap-4 w-full pb-4 mt-4">
+        <div className="flex flex-col gap-4 w-full pb-4 mt-4 border border-black p-4">
           {data.map((video) => (
             <div
               key={video.videoId}
               onClick={() => handleCardClick(video)}
-              className="w-full p-2 flex items-center justify-between lg:justify-around cursor-pointer hover:bg-gray-100"
+              className="w-full p-2 flex items-center justify-between lg:justify-around cursor-pointer hover:text-highlight hover:underline"
             >
-              <h3 className="text-sm video-title">{video.title}</h3>
+              <h3 className="text-sm video-title mr-4">{video.title}</h3>
               <h4 className="text-sm hidden md:block">{video.date}</h4>
             </div>
           ))}
