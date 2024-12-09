@@ -33,7 +33,6 @@ export default function Vault() {
   }, []);
 
   useEffect(() => {
-    // Set the max height dynamically based on the content's height
     if (listRef.current) {
       setMaxHeight(isExpanded ? `${listRef.current.scrollHeight}px` : "0px");
     }
@@ -56,18 +55,15 @@ export default function Vault() {
   };
 
   const toggleList = () => {
-    setIsExpanded(!isExpanded); // Toggle the expanded state
+    setIsExpanded(!isExpanded);
   };
 
   return (
-    <div className="w-full flex flex-col items-center p-4" id="vault">
+    <div className="w-full flex flex-col items-center p-4 m-4" id="vault">
       <h1 className="text-xl my-5 p-2">The Render File Vault</h1>
-      <h2 className="text-xl font-bold my-4 p-2 flex items-center">
-        Past Renderings
-      </h2>
       <button
         onClick={toggleList}
-        className="ml-2 hover:underline border border-gray-500 rounded px-2 py-1"
+        className="ml-2 hover:underline border-4 border-headerBG rounded-md px-2 py-1"
         aria-label={isExpanded ? "Collapse list" : "Expand list"}
       >
         {isExpanded ? (
@@ -77,18 +73,20 @@ export default function Vault() {
         )}
       </button>
       <div
-        ref={listRef}
-        className="overflow-hidden transition-all duration-500 ease-in-out"
+        className="w-full transition-max-height duration-500 ease-in-out overflow-hidden"
         style={{ maxHeight }}
       >
-        <div className="flex flex-col gap-4 w-full pb-4 mt-4 border border-black p-4">
+        <div
+          ref={listRef}
+          className="flex flex-col mx-auto gap-2 w-3/4 pb-4 mt-4 border-4 border-headerBG rounded-lg p-4 overflow-y-scroll h-[400px]"
+        >
           {data.map((video) => (
             <div
               key={video.videoId}
               onClick={() => handleCardClick(video)}
-              className="w-full p-2 flex items-center justify-between lg:justify-around cursor-pointer hover:text-highlight hover:underline"
+              className="w-full p-3 flex items-center justify-around lg:justify-center cursor-pointer hover:text-highlight hover:underline"
             >
-              <h3 className="text-sm video-title mr-4">{video.title}</h3>
+              <h3 className="text-sm video-title mr-10">{video.title}</h3>
               <h4 className="text-sm hidden md:block">{video.date}</h4>
             </div>
           ))}
