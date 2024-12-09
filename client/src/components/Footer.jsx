@@ -37,7 +37,7 @@ const Footer = () => {
       </div>
       <div className="flex justify-center pt-3 mt-3">
         <address
-          className="credits text-gray-400"
+          className="credits text-xs"
           onClick={enableAdminMode} // Ensure the onClick handler is a function
         >
           by Garret Hildebrandt

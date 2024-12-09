@@ -5,9 +5,9 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="flex flex-col justify-flex-start min-h-screen">
+    <div className="flex flex-col justify-flex-start min-h-screen font text-black">
       <Navbar />
-      <div className="flex-grow bodySection">
+      <div className="flex-grow bg-custom-gradient">
         <Outlet />
       </div>
       <Footer />

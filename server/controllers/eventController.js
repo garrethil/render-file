@@ -29,11 +29,11 @@ module.exports = {
   // Delete an event
   async deleteEvent(req, res) {
     try {
-      const student = await Event.findOneAndRemove({
+      const event = await Event.findOneAndRemove({
         _id: req.params.eventId,
       });
 
-      if (!student) {
+      if (!event) {
         return res.status(404).json({ message: "No such event exists" });
       }
 

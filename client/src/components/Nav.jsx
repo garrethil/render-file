@@ -1,14 +1,37 @@
 import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleScrollToSection = (e, sectionId) => {
+    e.preventDefault(); // Prevent default link behavior
+
+    const scrollToSection = () => {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" }); // Smooth scroll
+      }
+      setIsOpen(false); // Close the mobile menu after navigating
+    };
+
+    // If the user is on a different page, navigate to the home page first
+    if (location.pathname !== "/") {
+      navigate("/");
+      setTimeout(scrollToSection, 100); // Delay to ensure the page has navigated before scrolling
+    } else {
+      scrollToSection();
+    }
+  };
 
   return (
-    <nav className="bg-headerBG shadow-md">
+    <nav className="bg-headerBG shadow-md font-sans">
       <div className="container mx-auto px-4 py-2 flex justify-between items-center relative">
         <div className="container flex">
-          <a className="text-lg font-normal flex" href="/">
+          <a className="text-lg flex" href="/">
             <img
               src="/file-green.svg"
               alt="Render File Logo"
@@ -18,7 +41,7 @@ const Navbar = () => {
           </a>
         </div>
         <button
-          className="text-gray-800 md:hidden"
+          className="md:hidden"
           onClick={() => setIsOpen(!isOpen)}
           aria-controls="navbarNav"
           aria-expanded={isOpen}
@@ -45,29 +68,19 @@ const Navbar = () => {
           id="navbarNav"
         >
           <ul className="md:flex md:space-x-4">
-            <li className="nav-item">
+            <li className="nav-item" onClick={() => setIsOpen(!isOpen)}>
               <Link
-                onClick={() => setIsOpen(!isOpen)}
-                className="block py-2 px-4 text-gray-800 hover:text-green-600"
-                to="/"
-              >
-                Home
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                onClick={() => setIsOpen(!isOpen)}
-                className="block py-2 px-4 text-gray-800 hover:text-gray-600"
-                to="/about"
+                onClick={(e) => handleScrollToSection(e, "about")}
+                className="block py-2 px-4 hover:underline"
               >
                 About
               </Link>
             </li>
-            <li className="nav-item">
+            <li className="nav-item" onClick={() => setIsOpen(!isOpen)}>
               <Link
-                onClick={() => setIsOpen(!isOpen)}
-                className="block py-2 px-4 text-gray-800 hover:text-gray-600"
-                to="/vault"
+                onClick={(e) => handleScrollToSection(e, "vault")}
+                className="block py-2 px-4 hover:underline"
+                to="#vault"
               >
                 Vault
               </Link>

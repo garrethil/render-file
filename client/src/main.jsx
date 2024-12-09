@@ -1,51 +1,30 @@
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom"; // Importing routing components from react-router-dom
+import { HashRouter, Routes, Route } from "react-router-dom";
 import App from "./App.jsx";
 import "./index.css";
 
 import Home from "./pages/Home.jsx";
-import About from "./pages/About.jsx";
-import Vault from "./pages/Vault.jsx";
+import Details from "./pages/Details.jsx";
 import Error from "./pages/Error.jsx";
-import DetailsPage from "./pages/Details.jsx";
 import { CardProvider } from "./utils/CardContext";
-import { AdminProvider } from "./utils/AdminContext"; // Import AdminProvider
-
-const router = createBrowserRouter([
-  {
-    path: "/", // Root path
-    element: <App />, // Main App component
-    errorElement: <Error />, // Error page component
-    children: [
-      // Child routes
-      {
-        index: true, // Index route
-        element: <Home />, // Home page component
-      },
-      {
-        path: "/about",
-        element: <About />,
-      },
-      {
-        path: "/vault",
-        element: <Vault />,
-      },
-      {
-        path: "/vault/:id",
-        element: <DetailsPage />, // Details route
-      },
-    ],
-  },
-]);
+import { AdminProvider } from "./utils/AdminContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <CardProvider>
-    {" "}
-    {/* Wrap with CardProvider */}
     <AdminProvider>
-      {" "}
-      {/* Wrap with AdminProvider */}
-      <RouterProvider router={router} />
+      <HashRouter>
+        <Routes>
+          {/* App layout */}
+          <Route path="/" element={<App />}>
+            {/* Home route */}
+            <Route index element={<Home />} />
+            {/* Vault route with parameter */}
+            <Route path="vault/:id" element={<Details />} />
+          </Route>
+          {/* Optional fallback for undefined routes */}
+          <Route path="*" element={<Error />} />
+        </Routes>
+      </HashRouter>
     </AdminProvider>
   </CardProvider>
 );

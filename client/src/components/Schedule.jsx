@@ -1,25 +1,23 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useAdmin } from "../utils/AdminContext"; // Adjust the import path as needed
+import { useAdmin } from "../utils/AdminContext";
 
 const Schedule = () => {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [expandedEventId, setExpandedEventId] = useState(null); // Track expanded event
   const { isAdmin } = useAdmin();
   const [newEvent, setNewEvent] = useState({
     date: "",
     game: "",
     location: "",
   });
-  const [editingEvent, setEditingEvent] = useState(null);
 
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await axios.get(
-          "https://renderfile-6f797c2d85db.herokuapp.com/api"
-        );
+        const response = await axios.get("http://localhost:3001/api");
         if (response.data && Array.isArray(response.data.events)) {
           setEvents(response.data.events);
         } else {
@@ -35,44 +33,15 @@ const Schedule = () => {
     fetchEvents();
   }, []);
 
-  const handleDeleteEvent = async (id) => {
-    try {
-      await axios.delete(
-        `https://renderfile-6f797c2d85db.herokuapp.com/api/${id}`
-      );
-      setEvents(events.filter((event) => event._id !== id));
-    } catch (err) {
-      console.error("Error deleting event:", err);
-    }
-  };
-
-  const handleUpdateEvent = async (id) => {
-    setEditingEvent(events.find((event) => event._id === id));
-  };
-
-  const saveUpdatedEvent = async (id) => {
-    try {
-      const response = await axios.put(
-        `https://renderfile-6f797c2d85db.herokuapp.com/api/${id}`,
-        editingEvent
-      );
-      setEvents(
-        events.map((event) => (event._id === id ? response.data : event))
-      );
-      setEditingEvent(null);
-    } catch (err) {
-      console.error("Error updating event:", err);
-    }
+  const toggleEventDetails = (eventId) => {
+    setExpandedEventId((prevId) => (prevId === eventId ? null : eventId));
   };
 
   const handleAddEvent = async () => {
     try {
-      const response = await axios.post(
-        "https://renderfile-6f797c2d85db.herokuapp.com/api",
-        newEvent
-      );
-      setEvents([...events, response.data]);
-      setNewEvent({ date: "", game: "", location: "" });
+      const response = await axios.post("http://localhost:3001/api", newEvent);
+      setEvents([...events, response.data]); // Add new event to the list
+      setNewEvent({ date: "", game: "", location: "" }); // Reset form inputs
     } catch (err) {
       console.error("Error adding event:", err);
     }
@@ -96,93 +65,34 @@ const Schedule = () => {
         Upcoming Events
       </h2>
       <div className="space-y-4">
-        <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4 bg-gray-100 p-2 rounded-md">
-          {isAdmin && (
-            <div className="w-full sm:w-1/3 text-md sm:text-lg mx-3 font-semibold text-center">
-              Actions
-            </div>
-          )}
-        </div>
         {events.map((event) => (
           <div
             key={event._id}
-            className="bg-white p-4 shadow-md rounded-md flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4"
+            onClick={() => toggleEventDetails(event._id)}
+            className={`p-4 shadow-md hover:shadow-lg rounded-md flex flex-col space-y-2 cursor-pointer ${
+              expandedEventId === event._id ? "" : ""
+            }`}
           >
-            {editingEvent && editingEvent._id === event._id ? (
-              <>
-                <input
-                  type="text"
-                  value={editingEvent.date}
-                  onChange={(e) =>
-                    setEditingEvent({ ...editingEvent, date: e.target.value })
-                  }
-                  className="w-full sm:w-1/3 text-md sm:text-lg mx-3 font-semibold text-center sm:text-left border"
-                />
-                <input
-                  type="text"
-                  value={editingEvent.game}
-                  onChange={(e) =>
-                    setEditingEvent({ ...editingEvent, game: e.target.value })
-                  }
-                  className="w-full sm:w-1/3 text-sm sm:text-md font-medium text-center sm:text-left border"
-                />
-                <input
-                  type="text"
-                  value={editingEvent.location}
-                  onChange={(e) =>
-                    setEditingEvent({
-                      ...editingEvent,
-                      location: e.target.value,
-                    })
-                  }
-                  className="w-full sm:w-1/3 text-xs sm:text-sm text-gray-600 text-center sm:text-left border"
-                />
-                <button
-                  onClick={() => saveUpdatedEvent(event._id)}
-                  className="bg-green-500 text-white px-4 py-2 rounded-md mr-2"
-                >
-                  Save
-                </button>
-                <button
-                  onClick={() => setEditingEvent(null)}
-                  className="bg-gray-500 text-white px-4 py-2 rounded-md"
-                >
-                  Cancel
-                </button>
-              </>
-            ) : (
-              <>
-                <div className="w-full sm:w-1/3 text-md sm:text-lg mx-3 font-semibold text-center sm:text-left">
-                  {event.date}
-                </div>
-                <div className="w-full sm:w-1/3 text-sm sm:text-md font-medium text-center sm:text-left">
-                  {event.game}
-                </div>
-                <div className="w-full sm:w-1/3 text-xs sm:text-sm text-gray-600 text-center sm:text-left">
-                  {event.location}
-                </div>
-                {isAdmin && (
-                  <div className="w-full sm:w-1/3 text-center sm:text-left">
-                    <button
-                      onClick={() => handleUpdateEvent(event._id)}
-                      className="bg-blue-500 text-white px-4 py-2 rounded-md mr-2"
-                    >
-                      Edit
-                    </button>
-                    <button
-                      onClick={() => handleDeleteEvent(event._id)}
-                      className="bg-red-500 text-white px-4 py-2 rounded-md"
-                    >
-                      Delete
-                    </button>
-                  </div>
-                )}
-              </>
+            <div className="flex items-center justify-between">
+              <div className="text-md sm:text-lg font-semibold">
+                {event.date}
+              </div>
+              <div className="text-sm sm:text-md font-medium">{event.game}</div>
+              <div className="text-xs sm:text-sm">
+                {event.location || "N/A"}
+              </div>
+            </div>
+            {expandedEventId === event._id && (
+              <div className="mt-2 p-2 text-center">
+                <p className="text-sm sm:text-md">
+                  {event.desc || "No details available"}
+                </p>
+              </div>
             )}
           </div>
         ))}
         {isAdmin && (
-          <div className="bg-white p-4 shadow-md rounded-md flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4">
+          <div className="p-4 shadow-md rounded-md flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4">
             <input
               type="text"
               value={newEvent.date}
